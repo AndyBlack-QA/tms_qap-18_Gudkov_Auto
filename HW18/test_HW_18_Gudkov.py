@@ -19,6 +19,7 @@ from selenium.webdriver.common.by import By
 URL = 'https://candymapper.com/'
 
 
+
 @pytest.fixture
 def driver():
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -110,8 +111,8 @@ def test_empty_password_field_error(driver):
     email_field.send_keys("asdiofasdifas@gmail.com")
     sign_in_button = driver.find_element(By.XPATH, "//button[@data-aid='MEMBERSHIP_SSO_SUBMIT']")
     sign_in_button.click()
-    empty_password_error_message = driver.find_element(By.XPATH, "//p[@data-aid='MEMBERSHIP_SSO_ERR_REND']")
-    assert empty_password_error_message.is_displayed()
+    empty_password_error_message = driver.find_elements(By.XPATH, "//p[@data-aid='MEMBERSHIP_SSO_ERR_REND']")
+    assert empty_password_error_message
 
 
 def test_ghostville_party_location(driver):
@@ -127,7 +128,7 @@ def test_ghostville_party_location(driver):
     party_location = driver.find_element(By.CSS_SELECTOR, "div[class='x-el x-el-div x-el c1-1 c1-2 c1-r c1-6w c1-4 "
                                                           "c1-ao c1-t c1-7o c1-ap c1-aq c1-b c1-c c1-ar c1-as c1-d "
                                                           "c1-e c1-f c1-g c1-1 c1-2 c1-b c1-c c1-d c1-e c1-f c1-g']")
-    party_location.is_displayed()
+    assert party_location.is_displayed()
 
 
 
