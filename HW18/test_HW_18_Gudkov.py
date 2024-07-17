@@ -6,7 +6,8 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
-# Написать 5 автотестов по примеры ниже, на выбранного вами сайта либо на https://candymapper.com/ (https://candymapperr2.com/ исправленный сайт)
+# Написать 5 автотестов по примеры ниже, на выбранного вами сайта либо на https://candymapper.com/ (
+# https://candymapperr2.com/ исправленный сайт)
 #
 # 1. Открыйть сайт http://thedemosite.co.uk/login.php
 # 2. Ввести имя в поле username
@@ -15,9 +16,7 @@ from selenium.webdriver.common.by import By
 # 5. Проверить, что Successful Login отображаются
 
 
-
 URL = 'https://candymapper.com/'
-
 
 
 @pytest.fixture
@@ -32,7 +31,9 @@ def driver():
 
 def test_instant_window(driver):
     driver.get(URL)
-    instant_pop_up_message = driver.find_element(By.CSS_SELECTOR, 'div[class="x-el x-el-div c1-1 c1-2 c1-2v c1-ge c1-gf c1-cy c1-6u c1-4v c1-b c1-c c1-d c1-e c1-f c1-g"]')
+    instant_pop_up_message = driver.find_element(By.CSS_SELECTOR, 'div[class="x-el x-el-div c1-1 c1-2 c1-2v c1-ge '
+                                                                  'c1-gf c1-cy c1-6u c1-4v c1-b c1-c c1-d c1-e c1-f '
+                                                                  'c1-g"]')
     assert instant_pop_up_message.is_displayed
 
 
